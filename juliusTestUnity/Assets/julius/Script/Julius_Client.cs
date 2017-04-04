@@ -134,14 +134,14 @@ public class Julius_Client : MonoBehaviour {
 			Thread.Sleep(0);
 			//ストリームの受信
 			net.Read(data, 0, data.Length);
-			stream = System.Text.Encoding.Default.GetString(data);
-			//Debug.Log (stream);
+			stream = System.Text.Encoding.UTF8.GetString(data);
+			Debug.Log ("stream="+stream);
 			
 			//Debug.Log ("tmp_s : "+words)
 			tmp = string.Empty;
 			//XMLデータから文字列の抽出
 			tmp = XML_search(stream);
-
+            Debug.Log("get_stream_tmp=" + tmp);
 		}
 	}
 	
@@ -171,6 +171,7 @@ public class Julius_Client : MonoBehaviour {
 			sampling = sampling.NextMatch();
 		}
 		//最終的に結合した文字列を返す
+        //Debug.Log("tmp="+tmp);
 		return tmp;
 	}
 	//--------------------------------------------------------------

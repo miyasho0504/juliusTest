@@ -26,6 +26,7 @@ public class microphone : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        _audio = GetComponent<AudioSource>();
 		_audio.clip = Microphone.Start(null, true, 999, 44100);  // マイクからのAudio-InをAudioSourceに流す
 		_audio.loop = true;                                      // ループ再生にしておく
 		_audio.mute = true;                                      // マイクからの入力音なので音を流す必要がない
